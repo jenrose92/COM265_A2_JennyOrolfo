@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { View, FlatList, Text } from 'react-native';
-import RecipeCard from '../../components/RecipeCard';
-import { FavoritesContext } from '../../context/FavoritesContext';
+import { FlatList, Text } from 'react-native';
+import RecipeCard from '../components/RecipeCard';
+import { FavoritesContext } from '../context/FavoritesContext';
 import { useRouter } from 'expo-router';
-
 export default function Favorites() {
   const { favorites } = useContext(FavoritesContext);
   const router = useRouter();
@@ -11,10 +10,8 @@ export default function Favorites() {
   return (
     <FlatList
       data={favorites}
-      keyExtractor={i => i.idMeal}
-      renderItem={({ item }) => (
-        <RecipeCard title={item.strMeal} onPress={() => router.push(`/recipe/${item.idMeal}`)} />
-      )}
+      keyExtractor={item => item.idMeal}
+      renderItem={({ item }) => <RecipeCard title={item.strMeal} onPress={() => router.push(`/recipe/${item.idMeal}`)} />}
     />
   );
 }

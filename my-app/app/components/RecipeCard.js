@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 export default function RecipeCard({ title, onPress }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
@@ -8,7 +7,6 @@ export default function RecipeCard({ title, onPress }) {
     </TouchableOpacity>
   );
 }
-
 const styles = StyleSheet.create({
   card: { padding: 16, margin: 8, backgroundColor: '#eee', borderRadius: 8 },
   text: { fontSize: 16 }

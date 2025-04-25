@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 export default function CategoryCard({ title, image, onPress }) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -13,7 +12,6 @@ export default function CategoryCard({ title, image, onPress }) {
     </TouchableOpacity>
   );
 }
-
 const styles = StyleSheet.create({
   container: { flexDirection: 'row', margin: 8, backgroundColor: '#fff', borderRadius: 8, overflow: 'hidden' },
   thumb: { width: 80, height: 80 },
