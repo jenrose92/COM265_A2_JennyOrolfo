@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { ScrollView, Text, Button, TextInput, Image, ActivityIndicator, StyleSheet } from 'react-native';
-import { fetchRecipeById } from '../../api/mealsApi';
+import { fetchRecipeById } from '../../../api/mealsApi';
 import { useSearchParams } from 'expo-router';
-import { FavoritesContext } from '../../context/FavoritesContext';
+import { FavoritesContext } from '../../../context/FavoritesContext';
 export default function RecipeDetail() {
   const { id } = useSearchParams();
   const [meal, setMeal] = useState(null);

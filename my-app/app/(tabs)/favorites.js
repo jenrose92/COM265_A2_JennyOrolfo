@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { FlatList, Text } from 'react-native';
-import RecipeCard from '../components/RecipeCard';
-import { FavoritesContext } from '../context/FavoritesContext';
+import RecipeCard from '../../components/RecipeCard';
+import { FavoritesContext } from '../../context/FavoritesContext';
 import { useRouter } from 'expo-router';
 export default function Favorites() {
   const { favorites } = useContext(FavoritesContext);

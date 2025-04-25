@@ -1,10 +1,14 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export const FavoritesContext = createContext();
-export const FavoritesProvider = ({ children }) => {
+export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
-  useEffect(() => { AsyncStorage.getItem('favorites').then(saved => saved && setFavorites(JSON.parse(saved))); }, []);
-  useEffect(() => { AsyncStorage.setItem('favorites', JSON.stringify(favorites)); }, [favorites]);
+  useEffect(() => {
+    AsyncStorage.getItem('favorites').then(data => data && setFavorites(JSON.parse(data)));
+  }, []);
+  useEffect(() => {
+    AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
   const addFavorite = recipe => setFavorites(prev => [...prev, recipe]);
   const removeFavorite = id => setFavorites(prev => prev.filter(r => r.idMeal !== id));
   return (
@@ -12,4 +16,4 @@ export const FavoritesProvider = ({ children }) => {
       {children}
     </FavoritesContext.Provider>
   );
-};
+}
